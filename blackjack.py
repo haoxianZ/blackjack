@@ -45,8 +45,8 @@ class Hand:
 # keeping track of bet
 
 class Chips:
-	def __init__(self):
-		self.total = 100
+	def __init__(self,total=100):
+		self.total = total
 
 		self.bet = 0
 	def win_bet(self):
@@ -111,7 +111,7 @@ def dealer_wins(player,dealer, chips):
 
 def push(player,dealer):
 	print('is a tie')
-
+player_chips = Chips()
 while True:
 	#create and shuffle deck
 	deck = Deck()
@@ -124,7 +124,7 @@ while True:
 	dealer_hand.add_card(deck.deal())
 	dealer_hand.add_card(deck.deal())
 	# set up chips
-	player_chips = Chips()
+	
 	#put you bet
 	take_bet(player_chips)
 	#show cards
@@ -153,7 +153,7 @@ while True:
 
 	#one round finished, show chips
 	print('you have', player_chips.total)
-
+	x=player_chips.total
 	# ask for another round
 
 	new_game= input('Would you like to play another game? y or n')
